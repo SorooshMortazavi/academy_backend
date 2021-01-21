@@ -1,16 +1,17 @@
 import { Schema, model } from "mongoose";
-import Address from "./Address";
-import IStudent from "./IStudent";
+import IMaster from "./IMaster";
+import masterStatus from "./masterStatus";
 
-const studentSchema = new Schema({
+const masterSchema = new Schema({
   name: { type: String, required: true },
   lastName: { type: String, required: true },
   email: { type: String, required: true,unique:true },
   password: { type: String, required: true },
   mobile: { type: String, required: true,unique:true },
   createdAt: { type: Date, default: Date.now() },
-  courses: { type: [String], default: [] },
-  addresses: { type: [Address], default: [] },
+  status:{type:masterStatus,default:masterStatus.DE_ACTIVE},
+  about:{type:String,required:true},
+  picture:{type:String}  
 });
 
-export default model<IStudent>("Student", studentSchema);
+export default model<IMaster>("Master", masterSchema);

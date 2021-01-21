@@ -1,7 +1,8 @@
 import { Application } from "express";
 import RouterHandle from "./router";
 
-import studentRouter from '../components/student/StudentRouter'
+import studentRouter from '../components/student/studentRouter'
+import masterRouter from '../components/master/masterRouter'
 
 export default  class RouteService {
     private routerHandle:RouterHandle
@@ -14,6 +15,7 @@ export default  class RouteService {
     
     bindRouter(){
         this.routerHandle.registerRouter('/api/v1/student',studentRouter)
+        this.routerHandle.registerRouter('/api/v1/master',masterRouter)
     }
     
     run(){
