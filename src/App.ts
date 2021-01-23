@@ -1,6 +1,7 @@
 import * as express from 'express'
 import {Application} from 'express'
 import RouteService from './router/routeService'
+import boot from './boot'
 
 class App {
  private port: number
@@ -13,6 +14,7 @@ class App {
     }
 
     start() {
+        boot(this.app)
         this.routeService.run()
         this.app.listen(this.port,()=> console.log(`app is running on port ${this.port}`))
     }

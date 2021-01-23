@@ -1,4 +1,4 @@
-import { Schema, model } from "mongoose";
+import { Schema, model,connection } from "mongoose";
 import Address from "./Address";
 import IStudent from "./IStudent";
 
@@ -12,5 +12,8 @@ const studentSchema = new Schema({
   courses: { type: [String], default: [] },
   addresses: { type: [Address], default: [] },
 });
+const myModel =  model<IStudent>("Student", studentSchema)
 
-export default model<IStudent>("Student", studentSchema);
+// we have to use createIndexes() method on model until unique works
+myModel.createIndexes()
+export default myModel

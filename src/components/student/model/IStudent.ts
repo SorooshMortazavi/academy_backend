@@ -6,9 +6,9 @@ interface IStudent extends Document{
     email:string
     password:string
     mobile:string
-    createdAt:Date
-    courses:string[]
-    addresses:IAddress[]
+    createdAt?:Date
+    courses?:string[]
+    addresses?:IAddress[]
 }
 
 export default IStudent

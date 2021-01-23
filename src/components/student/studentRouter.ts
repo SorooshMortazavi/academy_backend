@@ -4,5 +4,6 @@ const studentRouter = Router()
 const studentController = new StudentController
 
 studentRouter.get('/',studentController.index)
+studentRouter.post('/register',studentController.registerUser)
 
 export default studentRouter
